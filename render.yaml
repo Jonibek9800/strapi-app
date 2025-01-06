@@ -1,12 +1,9 @@
 services:
   - type: web
-    name: my-web-service
-    env: node   # или python, go, ruby и т.д.
-    plan: free  # или standard, premium в зависимости от ваших потребностей
-    buildCommand: npm run build   # или другой командой для вашего стека (например, pip install, go build и т.д.)
-    startCommand: npm start    # команда для старта вашего сервера (например, python app.py, go run main.go и т.д.)
-    region: oregon             # или другой регион, например, california
-    envVars:
-      - key: NODE_ENV
-        value: production      # или другой environment, например, staging, development
-    autoDeploy: true           # если необходимо автоматическое развертывание при изменениях в репозитории
+    name: my-strapi-app
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build  # Убедитесь, что вы установили зависимости перед сборкой
+    startCommand: npm run start
+    region: oregon
+    autoDeploy: true
